@@ -2,7 +2,7 @@
 
 // DEFINES //////////////////////////
 
-// From motor controller to Arduino
+// From Arduino to motor controller
 #define PIN_SIGNAL_IN         3    // Must be interrupt pin, depends on board! (YELLOW)
 #define PIN_UP_SWITCH_OUT     4    // (GREEN)
 #define PIN_DOWN_SWITCH_OUT   5    // (BLUE)
@@ -13,7 +13,7 @@
 #define PIN_DOWN_SWITCH_IN    9    // (BLUE)
 
 // Interrupts
-#define INTERRUPT_SIGNAL_IN   3    // Must match pin PIN_SIGNAL_IN above!
+#define INTERRUPT_SIGNAL_IN   0    // Must match pin PIN_SIGNAL_IN above!
 
 
 // Directions
@@ -78,12 +78,12 @@ byte gMatchArray[MATCH_ARRAY_SIZE] = {1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 
 void setup()
 {
   // Init serial connection
-  Serial.begin(9600);
+  Serial1.begin(9600);
 
   // Setup pins
   pinMode(PIN_SIGNAL_IN, INPUT);
-  pinMode(PIN_UP_SWITCH_IN, INPUT);
-  pinMode(PIN_DOWN_SWITCH_IN, INPUT);
+  pinMode(PIN_UP_SWITCH_IN, OUTPUT);
+  pinMode(PIN_DOWN_SWITCH_IN, OUTPUT);
 
   pinMode(PIN_SIGNAL_OUT, OUTPUT);
   pinMode(PIN_UP_SWITCH_OUT, OUTPUT);
@@ -182,14 +182,14 @@ void handleCurrentSignalBit()
 
 void handleSerialMessaging()
 {
-  while(Serial.available())
+  while(Serial1.available())
   {
     // Shift all bytes
     for(int i=0; i<MESSAGE_LENGTH; ++i)
       gMessageBytes[i] = gMessageBytes[i + 1];
 
     // Insert new byte
-    gMessageBytes[MESSAGE_LENGTH] = Serial.read();
+    gMessageBytes[MESSAGE_LENGTH] = Serial1.read();
 
     // Check byte sequence
     checkSequence();
@@ -297,10 +297,10 @@ void sendByteSequence(byte bytes[], int count)
 {
   byte chk = 0;
   for(int i=0; i<count; ++i) {
-     Serial.write(bytes[i]);
+     Serial1.write(bytes[i]);
      chk += bytes[i];
   }
-  Serial.write(chk);
+  Serial1.write(chk);
 }
 
 // Check the checksum on the currently received bytes
