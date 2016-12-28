@@ -3,34 +3,34 @@ package main
 import (
 	"github.com/brutella/hc"
 	"github.com/brutella/hc/accessory"
+	"github.com/brutella/hc/service"
 	"log"
+	"fmt"
 )
-
-func turnLightOn() {
-	log.Println("Turn Light On")
-}
-
-func turnLightOff() {
-	log.Println("Turn Light Off")
-}
 
 func main() {
 	info := accessory.Info{
-		Name:         "Desk",
+		Name: "Desk",
 		Manufacturer: "David Knezic",
 	}
 
-	acc := accessory.NewLightbulb(info)
+	acc := New(info, TypeWindow)
 
-	acc.Lightbulb.On.OnValueRemoteUpdate(func(on bool) {
-		if on == true {
-			turnLightOn()
-		} else {
-			turnLightOff()
-		}
+	service := service.NewWindow()
+	service.TargetPosition.SetValue(100)
+
+	service.On.OnValueRemoteUpdate(func(position int) {
+		log.Println("Setting desk to %d", position)
 	})
 
-	t, err := hc.NewIPTransport(hc.Config{Pin: "32191123"}, acc.Accessory)
+	acc.AddService(service.Service)
+
+	config := hc.Config{
+		Pin: "32191123"
+	}
+
+	t, err := hc.NewIPTransport(config, acc)
+
 	if err != nil {
 		log.Fatal(err)
 	}
