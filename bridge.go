@@ -34,20 +34,20 @@ func receiver(c chan<- Message, p *serial.Port) {
 
 	for {
 		// shift bytes to left
-                message[0] = message[1]
-                message[1] = message[2]
+		message[0] = message[1]
+		message[1] = message[2]
 
 		// read new byte
 		_, err := p.Read(buf)
-        	if err != nil {
-                	log.Fatal(err)
-        	}
+		if err != nil {
+			log.Fatal(err)
+		}
 
 		// append new byte
 		message[2] = buf[0]
 
 		// checksum
-		if message[0] + message[1] != message[2] {
+		if message[0]+message[1] != message[2] {
 			continue
 		}
 
@@ -60,7 +60,7 @@ func sender(c <-chan Message, p *serial.Port) {
 
 	for {
 		// get a message
-		m := <- c
+		m := <-c
 
 		log.Println("Message to send", m)
 
@@ -75,15 +75,15 @@ func sender(c <-chan Message, p *serial.Port) {
 
 		// write the buffer
 		_, err := p.Write(message)
-        	if err != nil {
-                	log.Fatal(err)
-        	}
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 }
 
 func main() {
 	info := accessory.Info{
-		Name: "Desk",
+		Name:         "Desk",
 		Manufacturer: "David Knezic",
 	}
 
@@ -94,9 +94,9 @@ func main() {
 
 	c := &serial.Config{Name: "/dev/ttyAMA0", Baud: 9600}
 	s, err := serial.OpenPort(c)
-        if err != nil {
-                log.Fatal(err)
-        }
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	var incoming chan Message = make(chan Message)
 	var outgoing chan Message = make(chan Message)
@@ -108,7 +108,7 @@ func main() {
 		log.Println("Setting desk to", position, "percent height")
 
 		factor := float64(position) / 100.0
-		height := byte(80) + byte(100.0 * factor)
+		height := byte(80) + byte(100.0*factor)
 
 		log.Println("This corresponds to", height, "cm height")
 
