@@ -7,8 +7,8 @@ fi
 
 ### BEGIN INIT INFO
 # Provides:          desk
-# Required-Start:    $remote_fs $syslog
-# Required-Stop:     $remote_fs $syslog
+# Required-Start:    $remote_fs $syslog $network
+# Required-Stop:     $remote_fs $syslog $network
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 # Short-Description: HomeKit utility for height-adjustable desks
@@ -21,7 +21,7 @@ DESC="desk bridge"
 NAME=desk
 DAEMON=/home/pi/go/src/github.com/davidknezic/desk/bridge
 PIDFILE=/var/run/desk.pid
-SCRIPTNAME=/etc/init.d/"$NAME".sh
+SCRIPTNAME=/etc/init.d/"$NAME"
 
 test -f $DAEMON || exit 0
 
