@@ -11,16 +11,30 @@ import (
 type MessageType byte
 
 const (
+	// checking the availability of the desk
 	TypeAliveRequest      MessageType = 0x01
 	TypeAliveResponse     MessageType = 0x02
+
+	// setting the height of the desk
 	TypeSetHeightRequest  MessageType = 0x03
+
+	// querying the height of the desk
 	TypeGetHeightRequest  MessageType = 0x04
 	TypeGetHeightResponse MessageType = 0x05
+
+	// stopping the desk
 	TypeStopRequest       MessageType = 0x06
+
+	// TODO: to be implemented
 	TypeGetStatusRequest  MessageType = 0x07
 	TypeGetStatusResponse MessageType = 0x08
+
+	// moving the desk
 	TypeMoveUpRequest     MessageType = 0x0A
 	TypeMoveDownRequest   MessageType = 0x0B
+
+	// the desk notifying about a height change
+	TypeUpdateHeightEvent MessageType = 0x0C
 )
 
 type Message struct {
