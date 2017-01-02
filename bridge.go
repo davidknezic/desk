@@ -5,7 +5,9 @@ import (
 	"github.com/brutella/hc/accessory"
 	"github.com/brutella/hc/service"
 	"github.com/tarm/serial"
+	"github.com/urfave/cli"
 	"log"
+	"os"
 	"time"
 )
 
@@ -13,26 +15,26 @@ type MessageType byte
 
 const (
 	// checking the availability of the desk
-	TypeAliveRequest      MessageType = 0x01
-	TypeAliveResponse     MessageType = 0x02
+	TypeAliveRequest  MessageType = 0x01
+	TypeAliveResponse MessageType = 0x02
 
 	// setting the height of the desk
-	TypeSetHeightRequest  MessageType = 0x03
+	TypeSetHeightRequest MessageType = 0x03
 
 	// querying the height of the desk
 	TypeGetHeightRequest  MessageType = 0x04
 	TypeGetHeightResponse MessageType = 0x05
 
 	// stopping the desk
-	TypeStopRequest       MessageType = 0x06
+	TypeStopRequest MessageType = 0x06
 
 	// TODO: to be implemented
 	TypeGetStatusRequest  MessageType = 0x07
 	TypeGetStatusResponse MessageType = 0x08
 
 	// moving the desk
-	TypeMoveUpRequest     MessageType = 0x0A
-	TypeMoveDownRequest   MessageType = 0x0B
+	TypeMoveUpRequest   MessageType = 0x0A
+	TypeMoveDownRequest MessageType = 0x0B
 
 	// the desk notifying about a height change
 	TypeUpdateHeightEvent MessageType = 0x0C
@@ -109,28 +111,31 @@ func setInitialDeskPosition(outgoing chan<- Message, incoming <-chan Message, se
 	time.Sleep(2000 * time.Millisecond)
 
 	outgoing <- Message{Type: TypeGetHeightRequest}
-        hi := <- incoming
+	hi := <-incoming
 
-        log.Println("height is", hi.Value)
+	log.Println("height is", hi.Value)
 
-        percentage := heightToPercentage(int(hi.Value))
+	percentage := heightToPercentage(int(hi.Value))
 
 	service.TargetPosition.SetValue(percentage)
-        service.CurrentPosition.SetValue(percentage)
+	service.CurrentPosition.SetValue(percentage)
 }
 
-func main() {
+func startServer(dataPath string) {
 	info := accessory.Info{
 		Name:         "Desk",
 		Manufacturer: "David Knezic",
 	}
 
+	// sadly, window is the closest thing to a desk in HomeKit
 	acc := accessory.New(info, accessory.TypeWindow)
-
 	service := service.NewWindow()
-	service.TargetPosition.SetValue(100)
 
-	c := &serial.Config{Name: "/dev/ttyAMA0", Baud: 9600}
+	c := &serial.Config{
+		Name: "/dev/ttyAMA0",
+		Baud: 9600,
+	}
+
 	s, err := serial.OpenPort(c)
 	if err != nil {
 		log.Fatal(err)
@@ -157,7 +162,8 @@ func main() {
 	acc.AddService(service.Service)
 
 	config := hc.Config{
-		Pin: "32191123",
+		Pin:         "32191123",
+		StoragePath: dataPath,
 	}
 
 	t, err := hc.NewIPTransport(config, acc)
@@ -173,4 +179,28 @@ func main() {
 	go setInitialDeskPosition(outgoing, incoming, service)
 
 	t.Start()
+}
+
+func main() {
+	app := cli.NewApp()
+
+	app.Name = "desk"
+	app.Usage = "HomeKit bridge for height-adjustable desks"
+	app.Version = "1.0.0"
+
+	app.Flags = []cli.Flag{
+		cli.StringFlag{
+			Name:   "data",
+			Value:  "./desk",
+			Usage:  "Save HomeKit data to `PATH`",
+			EnvVar: "DESK_DATA_PATH",
+		},
+	}
+
+	app.Action = func(c *cli.Context) error {
+		startServer(c.String("data"))
+		return nil
+	}
+
+	app.Run(os.Args)
 }
