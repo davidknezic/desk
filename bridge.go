@@ -118,11 +118,16 @@ func main() {
 	go receiver(incoming, s)
 	go sender(outgoing, s)
 
+	outgoing <- Message{Type: TypeGetHeightRequest}
+	hi := <- incoming
+
+	log.Println("height is", hi.Value)
+
 	service.TargetPosition.OnValueRemoteUpdate(func(position int) {
 		log.Println("Setting desk to", position, "percent height")
 
 		factor := float64(position) / 100.0
-		height := byte(80) + byte(100.0*factor)
+		height := byte(68) + byte(50.0*factor)
 
 		log.Println("This corresponds to", height, "cm height")
 
