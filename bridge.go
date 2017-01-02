@@ -6,6 +6,7 @@ import (
 	"github.com/brutella/hc/service"
 	"github.com/tarm/serial"
 	"log"
+	"time"
 )
 
 type MessageType byte
@@ -95,6 +96,29 @@ func sender(c <-chan Message, p *serial.Port) {
 	}
 }
 
+func heightToPercentage(height int) int {
+	return (height - 68) / 50
+}
+
+func heightPercentageToCentimeters(percentage int) int {
+	factor := float64(percentage) / 100.0
+	return int(68.0 + 50.0*factor)
+}
+
+func setInitialDeskPosition(outgoing chan<- Message, incoming <-chan Message, service *service.Window) {
+	time.Sleep(2000 * time.Millisecond)
+
+	outgoing <- Message{Type: TypeGetHeightRequest}
+        hi := <- incoming
+
+        log.Println("height is", hi.Value)
+
+        percentage := heightToPercentage(int(hi.Value))
+
+	service.TargetPosition.SetValue(percentage)
+        service.CurrentPosition.SetValue(percentage)
+}
+
 func main() {
 	info := accessory.Info{
 		Name:         "Desk",
@@ -118,20 +142,14 @@ func main() {
 	go receiver(incoming, s)
 	go sender(outgoing, s)
 
-	outgoing <- Message{Type: TypeGetHeightRequest}
-	hi := <- incoming
-
-	log.Println("height is", hi.Value)
-
 	service.TargetPosition.OnValueRemoteUpdate(func(position int) {
 		log.Println("Setting desk to", position, "percent height")
 
-		factor := float64(position) / 100.0
-		height := byte(68) + byte(50.0*factor)
+		height := heightPercentageToCentimeters(position)
 
 		log.Println("This corresponds to", height, "cm height")
 
-		outgoing <- Message{Type: MessageType(TypeSetHeightRequest), Value: height}
+		outgoing <- Message{Type: MessageType(TypeSetHeightRequest), Value: byte(height)}
 
 		service.CurrentPosition.SetValue(position)
 	})
@@ -151,6 +169,8 @@ func main() {
 	hc.OnTermination(func() {
 		t.Stop()
 	})
+
+	go setInitialDeskPosition(outgoing, incoming, service)
 
 	t.Start()
 }
