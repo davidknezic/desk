@@ -22,6 +22,7 @@ NAME=desk
 DAEMON=/home/pi/go/src/github.com/davidknezic/desk/bridge
 PIDFILE=/var/run/desk.pid
 SCRIPTNAME=/etc/init.d/"$NAME"
+EXTRA_OPTS="--data=/var/lib/desk"
 
 test -f $DAEMON || exit 0
 
