@@ -30,14 +30,13 @@ test -f $DAEMON || exit 0
 
 case "$1" in
 start)  log_daemon_msg "Starting desk utility" "desk"
-        start_daemon -p $PIDFILE $DAEMON $EXTRA_OPTS
+        start-stop-daemon --start -b -C --oknodo --exec $DAEMON --pidfile $PIDFILE --make-pidfile -- $EXTRA_OPTS
         log_end_msg $?
         ;;
 stop)   log_daemon_msg "Stopping desk utility" "desk"
-        killproc -p $PIDFILE $DAEMON
-        RETVAL=$?
-        [ $RETVAL -eq 0 ] && [ -e "$PIDFILE" ] && rm -f $PIDFILE
-        log_end_msg $RETVAL
+        start-stop-daemon --stop --oknodo --pidfile $PIDFILE --name "bridge"
+        log_end_msg $?
+        rm -f $PIDFILE
         ;;
 restart) log_daemon_msg "Restarting desk utility" "desk"
         $0 stop
