@@ -22,6 +22,10 @@ Compact or a compatible motor controller.
 
 ## HomeKit bridge
 
+The bridge is a Raspberry Pi device that connects to the local network and exposes at least one height-adjustable desk through HomeKit.
+
+<img src="https://cloud.githubusercontent.com/assets/198988/21696849/0d0362e6-d390-11e6-9af5-f057f5d6df14.gif" alt="home-kit-bridge" />
+
 ...
 
 ## History
