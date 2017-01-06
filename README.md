@@ -39,11 +39,17 @@ The bridge is a Raspberry Pi device that connects to the local network and expos
 
 ||Part|Vendor|
 |---|---|---|
-|<img src="https://cdn-shop.adafruit.com/82x62/3055-06.jpg" alt="Raspberry Pi 3 - Model B" />|Raspberry Pi 3 - Model B|[Adafruit](https://www.adafruit.com/products/3055)|
-|<img src="https://cdn-shop.adafruit.com/82x62/2310-07.jpg" alt="Adafruit Perma-Proto HAT for Pi Mini Kit" />|Adafruit Perma-Proto HAT for Pi Mini Kit|[Adafruit](https://www.adafruit.com/products/2310)|
-|<img src="https://cdn-shop.adafruit.com/82x62/128-01.jpg" alt="XBee Module - Series 1" />|XBee Module - Series 1|[Adafruit](https://www.adafruit.com/products/128)|
-|<img src="https://cdn-shop.adafruit.com/82x62/126-03.jpg" alt="XBee Adapter kit - v1.1" />|XBee Adapter kit - v1.1|[Adafruit](https://www.adafruit.com/products/126)|
-|<img src="https://cdn-shop.adafruit.com/82x62/2767-00.jpg" alt="8GB SD Card with Raspbian Jessie Operating System" />|8GB SD Card with Raspbian Jessie Operating System|[Adafruit](https://www.adafruit.com/products/2767)|
+|<img src="https://cdn-shop.adafruit.com/82x62/3055-06.jpg" alt="Raspberry Pi 3 - Model B" />|**Raspberry Pi 3 - Model B**<br />Probably the best device for the bridge, it's fast and comes with on-board wifi.|[Adafruit](https://www.adafruit.com/products/3055)|
+|<img src="https://cdn-shop.adafruit.com/82x62/2310-07.jpg" alt="Adafruit Perma-Proto HAT for Pi Mini Kit" />|**Adafruit Perma-Proto HAT for Pi Mini Kit**<br />A prototyping HAT for soldering the components onto. If you prefer to use a breadboard, this is unnecessary.|[Adafruit](https://www.adafruit.com/products/2310)|
+|<img src="https://cdn-shop.adafruit.com/82x62/128-01.jpg" alt="XBee Module - Series 1" />|**XBee Module - Series 1**<br />The wireless communicator.|[Adafruit](https://www.adafruit.com/products/128)|
+|<img src="https://cdn-shop.adafruit.com/82x62/126-03.jpg" alt="XBee Adapter kit - v1.1" />|**XBee Adapter kit - v1.1**<br />The adapter that makes using the XBee module as simple as possible.|[Adafruit](https://www.adafruit.com/products/126)|
+|<img src="https://cdn-shop.adafruit.com/82x62/2767-00.jpg" alt="8GB SD Card with Raspbian Jessie Operating System" />|**8GB SD Card with Raspbian Jessie Operating System**<br />For the Raspberry Pi. Can alternatively use an empty card and copy the OS onto it.|[Adafruit](https://www.adafruit.com/products/2767)|
+
+### Bridge assembly 
+
+...
+
+### Bridge software
 
 ...
 
