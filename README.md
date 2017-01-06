@@ -24,10 +24,11 @@ Additionally, you'll need soldering equipment or a breadboard with jumper wires 
 
 ### Parts list
 
-|Part|Vendor|
-|---|---|
-|one|here|
-
+||Part|Vendor|
+|---|---|---|
+|<img src="https://cdn-shop.adafruit.com/82x62/1086-08.jpg" alt="Arduino Micro with Headers - 5V 16MHz" />|**Arduino Micro with Headers - 5V 16MHz**<br />The perfect device to link between the motor controller and the hand switch, as it's 5V and very small.|[Adafruit](https://www.adafruit.com/products/1086)|
+|<img src="https://cdn-shop.adafruit.com/82x62/128-01.jpg" alt="XBee Module - Series 1" />|**XBee Module - Series 1**<br />The wireless communicator.|[Adafruit](https://www.adafruit.com/products/128)|
+|<img src="https://cdn-shop.adafruit.com/82x62/126-03.jpg" alt="XBee Adapter kit - v1.1" />|**XBee Adapter kit - v1.1**<br />The adapter that makes using the XBee module as simple as possible.|[Adafruit](https://www.adafruit.com/products/126)|
 
 ## HomeKit bridge
 
