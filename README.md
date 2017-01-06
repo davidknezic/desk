@@ -33,9 +33,17 @@ Additionally, you'll need soldering equipment or a breadboard with jumper wires 
 
 The bridge is a Raspberry Pi device that connects to the local network and exposes at least one height-adjustable desk through HomeKit.
 
-<img src="https://cloud.githubusercontent.com/assets/198988/21696849/0d0362e6-d390-11e6-9af5-f057f5d6df14.gif" alt="home-kit-bridge" width="560" />
+<img src="https://cloud.githubusercontent.com/assets/198988/21696849/0d0362e6-d390-11e6-9af5-f057f5d6df14.gif" alt="HomeKit bridge" width="560" />
 
 ### Parts list
+
+||Part|Vendor|
+|---|---|---|
+|<img src="https://cdn-shop.adafruit.com/82x62/3055-06.jpg" alt="Raspberry Pi 3 - Model B" />|Raspberry Pi 3 - Model B|[Adafruit](https://www.adafruit.com/products/3055)|
+|<img src="https://cdn-shop.adafruit.com/82x62/2310-07.jpg" alt="Adafruit Perma-Proto HAT for Pi Mini Kit" />|Adafruit Perma-Proto HAT for Pi Mini Kit|[Adafruit](https://www.adafruit.com/products/2310)|
+|<img src="https://cdn-shop.adafruit.com/82x62/128-01.jpg" alt="XBee Module - Series 1" />|XBee Module - Series 1|[Adafruit](https://www.adafruit.com/products/128)|
+|<img src="https://cdn-shop.adafruit.com/82x62/126-03.jpg" alt="XBee Adapter kit - v1.1" />|XBee Adapter kit - v1.1|[Adafruit](https://www.adafruit.com/products/126)|
+|<img src="https://cdn-shop.adafruit.com/82x62/2767-00.jpg" alt="8GB SD Card with Raspbian Jessie Operating System" />|8GB SD Card with Raspbian Jessie Operating System|[Adafruit](https://www.adafruit.com/products/2767)|
 
 ...
 
