@@ -20,7 +20,7 @@ Additionally, you'll need soldering equipment or a breadboard with jumper wires 
 
 ## Desk hardware
 
-...
+<img src="https://cloud.githubusercontent.com/assets/198988/21741728/8b722216-d4df-11e6-8eb1-3eb6fe2b2aec.gif" alt="Desk hardware" width="560" />
 
 ### Parts list
 
