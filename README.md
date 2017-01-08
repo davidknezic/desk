@@ -24,7 +24,9 @@ Compact or a compatible motor controller. The motor controller is attached to th
 
 Additionally, you'll need soldering equipment or a breadboard with jumper wires in order to interconnect all the components.
 
-## Desk hardware
+## Desk module
+
+The desk module is linked between the hand switch and the motor controller. It passes through any signals from the hand switch, so you can still control the desk manually using buttons. It also adds an Arduino and XBee module, which allow you to send and receive signals remotely from the bridge and ultimately from HomeKit.
 
 <img src="https://cloud.githubusercontent.com/assets/198988/21741728/8b722216-d4df-11e6-8eb1-3eb6fe2b2aec.gif" alt="Desk hardware" width="560" />
 
@@ -39,9 +41,17 @@ Additionally, you'll need soldering equipment or a breadboard with jumper wires 
 |<img src="http://uk.farnell.com/productimages/thumbnail/en_GB/1814812-40.jpg" alt="Lumberg 7-pole DIN Circular Socket" />|**Lumberg 7-pole DIN Circular Socket (0122 07-1)**<br />The socket that will connect to the hand switch.|[Farnell](http://uk.farnell.com/lumberg/0122-07-1/socket-free-din-bayonet-7way/dp/1814817)|
 |<img src="http://uk.farnell.com/productimages/thumbnail/en_GB/1814819-40.jpg" alt="Lumberg 7-pole DIN Circular Plug" />|**Lumberg 7-pole DIN Circular Plug (0131 07-1)**<br />The plug that will connect to the motor controller.|[Farnell](http://uk.farnell.com/lumberg/0131-07-1/plug-free-din-7way/dp/1814824)|
 
+### Bridge assembly 
+
+...
+
+### Bridge software
+
+...
+
 ## HomeKit bridge
 
-The bridge is a Raspberry Pi device that connects to the local network and exposes at least one height-adjustable desk through HomeKit.
+The bridge is a Raspberry Pi device that connects to the local network and exposes at least one height-adjustable desk through HomeKit. It also contains a XBee module which is used to send and receive commands to and from the desk module.
 
 <img src="https://cloud.githubusercontent.com/assets/198988/21696849/0d0362e6-d390-11e6-9af5-f057f5d6df14.gif" alt="HomeKit bridge" width="560" />
 
