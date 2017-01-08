@@ -11,7 +11,9 @@ A while ago I bought a height-adjustable desk. It was supposed to make my often 
 
 Then, a couple of months ago I got the idea that the only way for me to stand up would be if my desk would force me to do it. I thought about ways to automate my desk's electronics and did some research. Luckily, [someone has already been experimenting with this idea](http://www.mikrocontroller.net/topic/373579) and a very similar desk, too. That person also [managed to analyze the protocol](http://www.mikrocontroller.net/topic/369941) between the manual hand switch and the motor controller with the help of some electrical engineers.
 
-With this I went ahead and started building the devices and software necessary to make my desk controllable using Apple's HomeKit framework and Siri. That way I could set up scenes and automatically trigger them, for example changing my desk's preferred positions every two hours.
+With this I went ahead and started building the devices and software necessary to make my desk controllable using Apple's HomeKit framework. That way I could set up scenes and automatically trigger them, for example changing my desk's position every two hours.
+
+Additionally, I could now save my preferred sitting and standing heights and trigger them using Siri!
 
 ## Prerequisites
 
