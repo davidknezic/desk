@@ -86,6 +86,42 @@ The bridge is a Raspberry Pi device that connects to the local network and expos
 
 ### Bridge software
 
+1. Make sure you have the [latest version of Raspbian](https://www.raspberrypi.org/downloads/raspbian/) running on your Raspberry Pi.
+
+2. [`ssh` into the Raspberry Pi](https://www.raspberrypi.org/documentation/remote-access/ssh/).
+
+  Don't overlook this message:
+
+  > For headless setup, SSH can be enabled by placing a file named 'ssh', without any extension, onto the boot partition of the SD card.
+  
+3. [Install the latest version of Go](http://raspberrypi.stackexchange.com/a/46828).
+
+4. Set up your go workspace by running these lines and adding them to `~/.bashrc`.
+
+  ```sh
+  export PATH="$PATH:$GOROOT/bin"
+  export GOROOT=/usr/local/go
+  export GOPATH=/home/pi/go/
+  ```
+
+5. Clone this repo and switch into it. Don't rename the destination folder.
+
+  ```sh
+  git clone https://github.com/davidknezic/desk ~/go/src/github.com/davidknezic/desk
+  cd ~/go/src/github.com/davidknezic/desk
+  ```
+
+6. Get the dependencies and build the executable.
+
+  ```sh
+  go get
+  go build bridge.go
+  ```
+  
+7. Run `./bridge`.
+
+Follow these steps to make the bridge software run automatically on each reboot of your Raspberry Pi:
+
 ...
 
 ## Attribution
