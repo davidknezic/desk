@@ -59,7 +59,7 @@ The desk module is linked between the hand switch and the motor controller. It p
 
 ### Module assembly 
 
-...
+<img src="https://cloud.githubusercontent.com/assets/198988/21753329/5407bd9c-d5eb-11e6-97c2-9902662dccc7.png" alt="desk module schema" width="560" />
 
 ### Module software
 
