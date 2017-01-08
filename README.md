@@ -5,6 +5,19 @@
 
 <img src="https://cloud.githubusercontent.com/assets/198988/21662365/9be90a2c-d2d9-11e6-8f4c-d6f92b6cd230.gif" alt="Office Desk controlled by Siri" width="280" /> <img src="https://cloud.githubusercontent.com/assets/198988/21662454/022f88f6-d2da-11e6-80cb-79a3a32c0abf.gif" alt="Office Desk controlled using Home app" width="280" />
 
+## Table of contents
+
+* [Intro](#intro)
+* [Prerequisites](#prerequisites)
+* [Desk module](#desk-module)
+  * [Module assembly](#module-assembly)
+  * [Module software](#module-software)
+* [HomeKit bridge](#homekit-bridge)
+  * [Bridge assembly](#bridge-assembly)
+  * [Bridge software](#bridge-software)
+* [Attribution](#attribution)
+* [License](#license)
+
 ## Intro
 
 A while ago I bought a height-adjustable desk. It was supposed to make my often long hours sitting in front of my computer programming things a little bit healthier by allowing me to get up and stand from time to time. However, this really only lasted a couple of weeks until I almost forgot that I could change my desk's height.
@@ -41,11 +54,11 @@ The desk module is linked between the hand switch and the motor controller. It p
 |<img src="http://uk.farnell.com/productimages/thumbnail/en_GB/1814812-40.jpg" alt="Lumberg 7-pole DIN Circular Socket" />|**Lumberg 7-pole DIN Circular Socket (0122 07-1)**<br />The socket that will connect to the hand switch.|[Farnell](http://uk.farnell.com/lumberg/0122-07-1/socket-free-din-bayonet-7way/dp/1814817)|
 |<img src="http://uk.farnell.com/productimages/thumbnail/en_GB/1814819-40.jpg" alt="Lumberg 7-pole DIN Circular Plug" />|**Lumberg 7-pole DIN Circular Plug (0131 07-1)**<br />The plug that will connect to the motor controller.|[Farnell](http://uk.farnell.com/lumberg/0131-07-1/plug-free-din-7way/dp/1814824)|
 
-### Bridge assembly 
+### Module assembly 
 
 ...
 
-### Bridge software
+### Module software
 
 ...
 
@@ -70,10 +83,6 @@ The bridge is a Raspberry Pi device that connects to the local network and expos
 ...
 
 ### Bridge software
-
-...
-
-## History
 
 ...
 
