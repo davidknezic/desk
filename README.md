@@ -98,25 +98,25 @@ The bridge is a Raspberry Pi device that connects to the local network and expos
 
 4. Set up your go workspace by running these lines and adding them to `~/.bashrc`.
 
-  ```sh
-  export PATH="$PATH:$GOROOT/bin"
-  export GOROOT=/usr/local/go
-  export GOPATH=/home/pi/go/
-  ```
+```sh
+export PATH="$PATH:$GOROOT/bin"
+export GOROOT=/usr/local/go
+export GOPATH=/home/pi/go/
+```
 
 5. Clone this repo and switch into it. Don't rename the destination folder.
 
-  ```sh
-  git clone https://github.com/davidknezic/desk ~/go/src/github.com/davidknezic/desk
-  cd ~/go/src/github.com/davidknezic/desk
-  ```
+```sh
+git clone https://github.com/davidknezic/desk ~/go/src/github.com/davidknezic/desk
+cd ~/go/src/github.com/davidknezic/desk
+```
 
 6. Get the dependencies and build the executable.
 
-  ```sh
-  go get
-  go build bridge.go
-  ```
+```sh
+go get
+go build bridge.go
+```
   
 7. Run `./bridge`.
 
