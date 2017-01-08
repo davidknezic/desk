@@ -124,15 +124,15 @@ Follow these steps to make the bridge software run automatically on each reboot 
 
 1. Copy the init script.
 
-    ```sh
-    sudo ln -s ~/go/src/github.com/davidknezic/desk/init.d/desk /etc/init.d/desk
-    ```
+    ```sh
+    sudo ln -s ~/go/src/github.com/davidknezic/desk/init.d/desk /etc/init.d/desk
+    ```
 
 2. Update your rc.d scripts.
 
-    ```sh
+    ```sh
     sudo update-rc.d desk defaults
-    ```
+    ```
 
 ## Attribution
 
