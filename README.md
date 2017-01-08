@@ -86,7 +86,7 @@ The bridge is a Raspberry Pi device that connects to the local network and expos
 
 ### Bridge assembly 
 
-...
+<img src="https://cloud.githubusercontent.com/assets/198988/21752960/615bf016-d5e2-11e6-87dc-f441754fb8e4.png" alt="HomeKit bridge schema" width="560" />
 
 ### Bridge software
 
