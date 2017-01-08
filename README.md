@@ -62,7 +62,11 @@ The desk module is linked between the hand switch and the motor controller. It p
 
 ### Module software
 
-...
+1. Get the [Arduino IDE](http://www.arduino.org/downloads).
+
+2. Connect your Arduino Micro to your computer.
+
+3. Put the `DeskControl.ino` firmware onto your Arduino.
 
 ## HomeKit bridge
 
