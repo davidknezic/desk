@@ -10,9 +10,11 @@
 * [Intro](#intro)
 * [Prerequisites](#prerequisites)
 * [Desk module](#desk-module)
+  * [Module parts list](#module-parts-list)
   * [Module assembly](#module-assembly)
   * [Module software](#module-software)
 * [HomeKit bridge](#homekit-bridge)
+  * [Bridge parts list](#bridge-parts-list)
   * [Bridge assembly](#bridge-assembly)
   * [Bridge software](#bridge-software)
 * [Attribution](#attribution)
@@ -43,7 +45,7 @@ The desk module is linked between the hand switch and the motor controller. It p
 
 <img src="https://cloud.githubusercontent.com/assets/198988/21741728/8b722216-d4df-11e6-8eb1-3eb6fe2b2aec.gif" alt="Desk hardware" width="560" />
 
-### Parts list
+### Module parts list
 
 ||Part|Vendor|
 |---|---|---|
@@ -68,7 +70,7 @@ The bridge is a Raspberry Pi device that connects to the local network and expos
 
 <img src="https://cloud.githubusercontent.com/assets/198988/21696849/0d0362e6-d390-11e6-9af5-f057f5d6df14.gif" alt="HomeKit bridge" width="560" />
 
-### Parts list
+### Bridge parts list
 
 ||Part|Vendor|
 |---|---|---|
