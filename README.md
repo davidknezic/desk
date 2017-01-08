@@ -35,6 +35,8 @@ Additionally, you'll need soldering equipment or a breadboard with jumper wires 
 |<img src="https://cdn-shop.adafruit.com/82x62/1086-08.jpg" alt="Arduino Micro with Headers - 5V 16MHz" />|**Arduino Micro with Headers - 5V 16MHz**<br />The perfect device to link between the motor controller and the hand switch, as it's 5V and very small.|[Adafruit](https://www.adafruit.com/products/1086)|
 |<img src="https://cdn-shop.adafruit.com/82x62/128-01.jpg" alt="XBee Module - Series 1" />|**XBee Module - Series 1**<br />The wireless communicator.|[Adafruit](https://www.adafruit.com/products/128)|
 |<img src="https://cdn-shop.adafruit.com/82x62/126-03.jpg" alt="XBee Adapter kit - v1.1" />|**XBee Adapter kit - v1.1**<br />The adapter that makes using the XBee module as simple as possible.|[Adafruit](https://www.adafruit.com/products/126)|
+|<img src="http://uk.farnell.com/productimages/thumbnail/en_GB/1814812-40.jpg" alt="LUMBERG 7-pole DIN Circular Socket" />|**LUMBERG 7-pole DIN Circular Socket (0122 07-1)**|[Farnell](http://uk.farnell.com/lumberg/0122-07-1/socket-free-din-bayonet-7way/dp/1814817)|
+|<img src="http://uk.farnell.com/productimages/thumbnail/en_GB/1814819-40.jpg" alt="LUMBERG 7-pole DIN Circular Plug" />|**LUMBERG 7-pole DIN Circular Plug (0131 07-1)**|[Farnell](http://uk.farnell.com/lumberg/0131-07-1/plug-free-din-7way/dp/1814824)|
 
 ## HomeKit bridge
 
