@@ -186,8 +186,11 @@ func startServer(dataPath string) {
 	t, err := hc.NewIPTransport(config, acc)
 
 	if err != nil {
+		log.Println("Failed creating home control.")
 		log.Fatal(err)
 	}
+
+	log.Println("Created home control.")
 
 	hc.OnTermination(func() {
 		t.Stop()
