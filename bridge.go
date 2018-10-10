@@ -108,6 +108,8 @@ func heightPercentageToCentimeters(percentage int) int {
 }
 
 func setInitialDeskPosition(outgoing chan<- Message, incoming <-chan Message, service *service.Window) {
+	log.Println("Setting initial desk position.")
+
 	time.Sleep(2000 * time.Millisecond)
 
 	outgoing <- Message{Type: TypeGetHeightRequest}
@@ -129,9 +131,13 @@ func startServer(dataPath string) {
 		Model:        "A",
 	}
 
+	log.Println("Creating accessory and service...")
+
 	// sadly, window is the closest thing to a desk in HomeKit
 	acc := accessory.New(info, accessory.TypeWindow)
 	service := service.NewWindow()
+
+	log.Println("Opening serial console...")
 
 	c := &serial.Config{
 		Name: "/dev/ttyAMA0",
@@ -140,8 +146,11 @@ func startServer(dataPath string) {
 
 	s, err := serial.OpenPort(c)
 	if err != nil {
+		log.Println("Failed opening serial console.")
 		log.Fatal(err)
 	}
+
+	log.Println("Starting desk utility...")
 
 	var incoming chan Message = make(chan Message)
 	var outgoing chan Message = make(chan Message)
@@ -161,12 +170,18 @@ func startServer(dataPath string) {
 		service.CurrentPosition.SetValue(position)
 	})
 
+	log.Println("Adding service to accessory...")
+
 	acc.AddService(service.Service)
+
+	log.Println("Will store data to", dataPath)
 
 	config := hc.Config{
 		Pin:         "32191123",
 		StoragePath: dataPath,
 	}
+
+	log.Println("Starting home control...")
 
 	t, err := hc.NewIPTransport(config, acc)
 
@@ -189,6 +204,8 @@ func main() {
 	app.Name = "desk"
 	app.Usage = "HomeKit bridge for height-adjustable desks"
 	app.Version = "1.0.0"
+
+	log.Println("Starting desk utility")
 
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
