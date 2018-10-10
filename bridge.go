@@ -123,8 +123,10 @@ func setInitialDeskPosition(outgoing chan<- Message, incoming <-chan Message, se
 
 func startServer(dataPath string) {
 	info := accessory.Info{
-		Name:         "Desk",
+		Name:         "Office Desk",
 		Manufacturer: "David Knezic",
+		SerialNumber: "3214-3232-32",
+		Model:        "A",
 	}
 
 	// sadly, window is the closest thing to a desk in HomeKit
